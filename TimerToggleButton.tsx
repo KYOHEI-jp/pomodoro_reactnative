@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from 'react-native';
+import { StyleSheet, Button, Pressable, View } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 type Props = {
   isTimerRunning: boolean;
@@ -13,9 +14,20 @@ export const TimerToggleButton: React.FC<Props> = ({
   startTimer,
 }) => {
   return (
-    <Button
-      title={isTimerRunning ? 'Stop Timer' : 'Start Timer'}
-      onPress={isTimerRunning ? stopTimer : startTimer}
-    />
+    <Pressable onPress={isTimerRunning ? stopTimer : startTimer}>
+      <View style={styles.container}>
+        <FontAwesome
+          name={isTimerRunning ? 'pause' : 'play'}
+          size={125}
+          color="red"
+          style={styles.icon}
+        />
+      </View>
+    </Pressable>
   );
 };
+
+const styles = StyleSheet.create({
+  icon: {},
+  container: {},
+});

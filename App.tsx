@@ -30,13 +30,11 @@ export default function App() {
     <View style={styles.container}>
       <Text>ぽもドーろ！</Text>
       <StatusBar style="auto" />
-      <View style={styles.startButton}>
-        <TimerToggleButton
-          isTimerRunning={isTimerRunning}
-          startTimer={startTimer}
-          stopTimer={stopTimer}
-        />
-      </View>
+      <TimerToggleButton
+        isTimerRunning={isTimerRunning}
+        startTimer={startTimer}
+        stopTimer={stopTimer}
+      />
       <TimerCountDownDisplay timerDate={new Date(timerCount)} />
     </View>
   );
@@ -48,15 +46,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  startButton: {
-    marginVertical: 20,
-    width: 200,
-    backgroundColor: 'yellow',
-  },
-  stopButton: {
-    marginVertical: 20,
-    width: 200,
-    backgroundColor: 'red',
   },
 });

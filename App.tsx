@@ -20,13 +20,20 @@ export default function App() {
     }
   };
 
+  const timerDate = new Date(timerCount);
+
   return (
     <View style={styles.container}>
       <Text>ぽもドーろ！</Text>
       <StatusBar style="auto" />
-      <Button title="Start timer" onPress={startTimer} />
-      <Button title="Stop timer" onPress={stopTimer} />
-      <Text>{timerCount}</Text>
+      <View style={styles.startButton}>
+        <Button title="Start timer" onPress={startTimer} />
+      </View>
+      <View style={styles.stopButton}></View>
+      <Button title="Stop timer" color="#FF0000" onPress={stopTimer} />
+      <Text>
+        {timerDate.getMinutes()}: {timerDate.getSeconds()}
+      </Text>
     </View>
   );
 }
@@ -37,5 +44,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  startButton: {
+    marginVertical: 20,
+    width: 200,
+    backgroundColor: 'yellow',
+  },
+  stopButton: {
+    marginVertical: 20,
+    width: 200,
+    backgroundColor: 'red',
   },
 });
